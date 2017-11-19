@@ -9,5 +9,6 @@ Description: Uses multidimensional contingency tables to calculate ecological di
 License: GPL-3
 Encoding: UTF-8
 LazyData: TRUE
-Depends: flowWorkspace, flowCore, vegan, ggplot2, grDevices, stats, utils, gridExtra, graphics, methods
+Depends: flowWorkspace, flowCore, vegan, ggplot2, betapart
+Imports: grDevices, stats, utils, gridExtra, graphics, methods
 RoxygenNote: 6.0.1

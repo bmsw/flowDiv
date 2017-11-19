@@ -23,6 +23,7 @@
 #' @importFrom stats IQR kmeans na.omit
 #' @importFrom utils capture.output select.list
 #' @importFrom gridExtra arrangeGrob
+#' @importFrom betapart bray.part
 #' @param myworkspaces  A list containing the paths to FlowJo workspaces or GatingSet which are meant to be analyzed. More than one workspace can be analyzed at the same time. Workspaces should contain .fcs files (versions 2.0 or 3.0) with its original names.
 #' @param gate.name Name of the gate to be analyzed. Must be a single-valued string. The gate should be named exactly the same in all samples from the workspaces.
 #' @param ialpha Method used to calculate alpha diversity index of cytograms (i.e. the degree of similarity between two cytograms). Should be one of "shannon", "simpson" or "invsimpson", as for vegan::diversity function. Default is "invsimpson".
@@ -87,7 +88,7 @@ flowDiv<- function(myworkspaces, gate.name=NULL, ialpha="invsimpson", ibeta="bra
 
 
   binss=lapply(nnn$nodesample, function(x) lapply(x, function(y)lapply(selection, function(x)Freedman.Diaconis(exprs(y)[,x]))))
-  suggested.bins=round(mean(unlist(binss)))
+  suggested.bins=round(median(unlist(binss)))
 
   message(paste("Suggested number of bins:", suggested.bins, "\n"), "How many bins do you want to use?")
   nbins=scan(nmax=1, quiet=T)
@@ -170,7 +171,12 @@ flowDiv<- function(myworkspaces, gate.name=NULL, ialpha="invsimpson", ibeta="bra
   }
 
   else {
-    beta<-as.matrix(vegdist(matrices, method=ibeta))
+    if(ibeta=="bray"){
+      beta<-bray.part(matrices)
+    }
+   else {
+     beta<-as.matrix(vegdist(matrices, method=ibeta))
+   }
   }
 
   return(list(Alpha=alpha, Pielou=pielou, Beta=beta, Bins=nbins, Channels=selection, Matrices=matrices))
