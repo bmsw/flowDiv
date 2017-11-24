@@ -20,7 +20,7 @@
 #' @importFrom grDevices adjustcolor rainbow
 #' @importFrom graphics points text
 #' @importFrom methods new
-#' @importFrom stats IQR kmeans na.omit
+#' @importFrom stats IQR kmeans na.omit median
 #' @importFrom utils capture.output select.list
 #' @importFrom gridExtra arrangeGrob
 #' @importFrom betapart bray.part

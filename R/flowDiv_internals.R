@@ -166,7 +166,7 @@ graphs <- function(tubed, names, NBINS, selection, myseqs, breaks, clusterscols,
 
   }, newframe2[,1], newframe2[,2], SIMPLIFY = F)
 
-  grid=arrangeGrob(gplots, nrow=length(selection), ncol=length(selection))
+  grid=marrangeGrob(gplots, nrow=length(selection), ncol=length(selection), top=NULL)
   ggsave(filename=names, plot=grid, device="jpeg", units="cm", width=dimension, height=dimension)
 
 }

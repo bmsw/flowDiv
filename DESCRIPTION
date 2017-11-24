@@ -1,7 +1,7 @@
 Package: flowDiv
 Type: Package
 Title: Cytometric Diversity Indices from Gated Data
-Version: 2.0
+Version: 2.0-1
 Date: 2017-11-18
 Author: Bruno M.S. Wanderley, Maria Victoria Quiroga, Andre M. Amado, Fernando Unrein
 Maintainer: Bruno M.S. Wanderley <brunobiomed.ufrn@gmail.com>
