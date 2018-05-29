@@ -68,7 +68,7 @@ nn<- function(x, nod, nod2, use.beads)
     rm(samples.fS)
   }
   ####
-  return(list(names=names, nodesample=nodesample2))
+  return(list(names=names, nodesample=nodesample))
   
 }
 
